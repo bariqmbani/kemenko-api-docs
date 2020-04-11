@@ -43,21 +43,21 @@
                         
                         <div class="navs">
                             <li class="nav-list">
-                                <a class="nav-item" href="#laporan">Laporan E-Monev</a>
+                                <a class="nav-item" href="#dokumen">Dokumen</a>
                                 <li class="nav-sub-list">
-                                    <a href="#daftar-laporan" class="nav-sub-item">Mendapatakan daftar laporan</a>
+                                    <a href="#daftar-dokumen" class="nav-sub-item">Mendapatakan daftar dokumen</a>
                                 </li>
                                 <li class="nav-sub-list">
-                                    <a href="#unduh-laporan" class="nav-sub-item">Mengunduh laporan</a>
+                                    <a href="#unduh-dokumen" class="nav-sub-item">Mengunduh dokumen</a>
                                 </li>
                                 <li class="nav-sub-list">
-                                    <a href="#unggah-laporan" class="nav-sub-item">Mengunggah laporan</a>
+                                    <a href="#unggah-dokumen" class="nav-sub-item">Mengunggah dokumen baru</a>
                                 </li>
                                 <li class="nav-sub-list">
-                                    <a href="#perbarui-laporan" class="nav-sub-item">Memperbarui laporan</a>
+                                    <a href="#perbarui-dokumen" class="nav-sub-item">Memperbarui dokumen</a>
                                 </li>
                                 <li class="nav-sub-list">
-                                    <a href="#hapus-laporan" class="nav-sub-item">Menghapus laporan</a>
+                                    <a href="#hapus-dokumen" class="nav-sub-item">Menghapus dokumen</a>
                                 </li>
                             </li>
                         </div>
@@ -173,20 +173,6 @@
                                     </div>
                                 </div>
                             </div>
-        
-                            <!-- QUERY PARAMETER -->
-                            <!-- <div class="query mb-4">
-                                <div class="heading">query</div>
-                                <hr>
-                                <div class="param row">
-                                    <div class="name col-md-3">
-                                        exp
-                                    </div>
-                                    <div class="value col-md-9">
-                                        24h
-                                    </div>
-                                </div>
-                            </div> -->
         
                             <!-- REQUEST BODY -->
                             <div class="req-body mb-4">
@@ -326,26 +312,60 @@
                         
                     </section>
 
-                    <!-- BAGIAN LAPORAN -->
+                    <!-- BAGIAN DOKUMEN -->
                     <section>
                         <div class="section-header">
-                            <h2 id="laporan">Laporan E-Monev</h2>
+                            <h2 id="dokumen">Dokumen</h2>
                         </div>
     
     
                         <div class="description text-justify">
-                            <p>Bagian ini berisi hal diperlukan untuk mengatasi laporan, seperti menyimpan data, mengambil data, dan menghapus data.</p>
+                            <p>Bagian ini berisi hal yang diperlukan untuk <i>handle</i> dokumen, seperti menyimpan data, mengambil data, dan menghapus data. Query parameter <b>type</b> perlu dikirimkan pada API dokumen ini karena untuk me-<i>handle</i> dokumen Laporan Monev atau dokumen Program GNRM.</p>
                         </div>
 
-                        <!-- daftar laporan -->
-                        <section class="sub-section" id="daftar-laporan">
-                            <h4>Mendapatkan daftar laporan</h4>
+                        <!-- QUERY PARAMETER -->
+                        <div class="query mb-4">
+                            <div class="heading">query</div>
+                            <hr>
+                            <div class="param row">
+                                <div class="name col-md-3">
+                                    type
+                                </div>
+                                <div class="value col-md-9">
+                                    <li>monev</li>
+                                    <li>gnrm</li>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="param d-inline-block">
+                            <div class="name">Status Code
+                                <div class="badge badge-danger p-1">
+                                    <span class="status">400</span>
+                                </div>
+                            </div>
+                            <span class="info">
+                                Query parameter <b>type</b> tidak sama dengan 'monev' atau 'gnrm'.
+                            </span>
+                        </div>
+                        <pre class="pre-custom mb-3">
+                            <code class="json">
+                                {
+                                    "type": "error",
+                                    "message": "Request tidak valid"
+                                }
+                            </code>
+                        </pre>
+
+                        <!-- daftar dokumen -->
+                        <section class="sub-section" id="daftar-dokumen">
+                            <h4>Mendapatkan daftar dokumen</h4>
                             <div class="card w-100 mb-2">
                                 <div class="card-body p-1">
                                     <div class="badge badge-info p-2">
                                         <span class="method">GET</span>
                                     </div>
-                                    <span class="endpoint">/api/report</span>
+                                    <span class="endpoint">/api/document</span>
                                 </div>
                             </div>
 
@@ -377,21 +397,8 @@
                                     <code class="json">
                                         {
                                             "status": "success",
-                                            "message": "Berhasil menampilkan laporan",
-                                            "report": [
-                                                {
-                                                    "_id": "507f191e810c19729de860ec",
-                                                    "instance_id": "507f191e810c197239d34vdd",
-                                                    "uploader_id": "507f191e810c19729de86022",
-                                                    "date": "2019-04-02"
-                                                },
-                                                {
-                                                    "_id": "507f191e810c19729de860ed",
-                                                    "instance_id": "507f191e810c197239d34vdd",
-                                                    "uploader_id": "507f191e810c19729de86022",
-                                                    "date": "2019-05-02"
-                                                }
-                                            ]
+                                            "message": "Berhasil menampilkan dokumen",
+                                            "document": []
                                         }
                                     </code>
                                 </pre>
@@ -400,15 +407,15 @@
     
                         </section>
 
-                        <!-- unduh laporan -->
-                        <section class="sub-section" id="unduh-laporan">
-                            <h4>Mengunduh laporan</h4>
+                        <!-- unduh dokumen -->
+                        <section class="sub-section" id="unduh-dokumen">
+                            <h4>Mengunduh dokumen</h4>
                             <div class="card w-100 mb-2">
                                 <div class="card-body p-1">
                                     <div class="badge badge-info p-2">
                                         <span class="method">get</span>
                                     </div>
-                                    <span class="endpoint">/api/report/:id</span>
+                                    <span class="endpoint">/api/document/:id</span>
                                 </div>
                             </div>
 
@@ -452,15 +459,15 @@
                             </div>
                         </section>
 
-                         <!-- unggah laporan -->
-                         <section class="sub-section" id="unggah-laporan">
-                            <h4>Mengunggah laporan</h4>
+                         <!-- unggah dokumen -->
+                         <section class="sub-section" id="unggah-dokumen">
+                            <h4>Mengunggah dokumen baru</h4>
                             <div class="card w-100 mb-2">
                                 <div class="card-body p-1">
                                     <div class="badge badge-info p-2">
                                         <span class="method">post</span>
                                     </div>
-                                    <span class="endpoint">/api/report</span>
+                                    <span class="endpoint">/api/document</span>
                                 </div>
                             </div>
 
@@ -492,7 +499,7 @@
                                 <hr>
                                 <div class="param row">
                                     <div class="name col-md-3">
-                                        report <span class="required">*</span>
+                                        document <span class="required">*</span>
                                     </div>
                                     <div class="value col-md-9">
                                         <span class="value-type">file</span>
@@ -508,7 +515,7 @@
                                 <div class="param">
                                     <div class="name">Status Code
                                         <div class="badge badge-success p-1">
-                                            <span class="status">200</span>
+                                            <span class="status">201</span>
                                         </div>
                                     </div>
                                 </div>
@@ -516,7 +523,7 @@
                                     <code class="json">
                                         {
                                             "status": "success",
-                                            "message": "Berhasil mengunggah dokumen laporan",
+                                            "message": "Berhasil mengunggah dokumen dokumen",
                                             "document_id": "a76b7b6d-3b57-414b-be1d-37de68a10d93"
                                         }
                                     </code>
@@ -543,15 +550,15 @@
                             </div>
                         </section>
 
-                        <!-- perbarui laporan -->
-                        <section class="sub-section" id="perbarui-laporan">
-                            <h4>Memperbarui laporan</h4>
+                        <!-- perbarui dokumen -->
+                        <section class="sub-section" id="perbarui-dokumen">
+                            <h4>Memperbarui dokumen</h4>
                             <div class="card w-100 mb-2">
                                 <div class="card-body p-1">
                                     <div class="badge badge-info p-2">
                                         <span class="method">put</span>
                                     </div>
-                                    <span class="endpoint">/api/report/:id</span>
+                                    <span class="endpoint">/api/document/:id</span>
                                 </div>
                             </div>
 
@@ -583,7 +590,7 @@
                                 <hr>
                                 <div class="param row">
                                     <div class="name col-md-3">
-                                        report <span class="required">*</span>
+                                        document <span class="required">*</span>
                                     </div>
                                     <div class="value col-md-9">
                                         <span class="value-type">file</span>
@@ -607,7 +614,7 @@
                                     <code class="json">
                                         {
                                             "status": "success",
-                                            "message": "Berhasil memperbarui dokumen laporan",
+                                            "message": "Berhasil memperbarui dokumen dokumen",
                                             "document_id": "f52823ff-a47d-4b4a-a9bb-dad22c4fd637"
                                         }
                                     </code>
@@ -653,15 +660,15 @@
                             </div>
                         </section>
 
-                        <!-- menghapus laporan -->
-                        <section class="sub-section" id="hapus-laporan">
-                            <h4>Menghapus laporan</h4>
+                        <!-- menghapus dokumen -->
+                        <section class="sub-section" id="hapus-dokumen">
+                            <h4>Menghapus dokumen</h4>
                             <div class="card w-100 mb-2">
                                 <div class="card-body p-1">
                                     <div class="badge badge-info p-2">
                                         <span class="method">delete</span>
                                     </div>
-                                    <span class="endpoint">/api/report/:id</span>
+                                    <span class="endpoint">/api/document/:id</span>
                                 </div>
                             </div>
 
@@ -685,7 +692,7 @@
                                 <hr>
                                 <div class="param row">
                                     <div class="name col-md-3">
-                                        report <span class="required">*</span>
+                                        document <span class="required">*</span>
                                     </div>
                                     <div class="value col-md-9">
                                         <span class="value-type">file</span>
@@ -709,7 +716,7 @@
                                     <code class="json">
                                         {
                                             "status": "success",
-                                            "message": "Berhasil menghapus dokumen laporan",
+                                            "message": "Berhasil menghapus dokumen dokumen",
                                             "document_id": "f52823ff-a47d-4b4a-a9bb-dad22c4fd637"
                                         }
                                     </code>

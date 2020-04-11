@@ -143,6 +143,12 @@ hr {
 	margin: 0 !important;
 }
 
+@media (max-width: 1100px) {
+	.sidebar {
+		display: none;
+	}
+}
+
 .required {
 	color: red;
 	font-weight: lighter;
@@ -202,7 +208,7 @@ hr {
 
 .sidebar {
 	margin-right: 20px;
-	width: 250px;
+	width: 350px;
 	position: sticky;
 	overflow-x: hidden;
 	-ms-overflow-style: none;
