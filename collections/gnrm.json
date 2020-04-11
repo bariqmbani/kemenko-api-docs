@@ -1,0 +1,34 @@
+{
+	"LaporanMonev": [
+		{
+			"_id": "gnrm_id_1",
+			"diunggah_oleh": {
+				"instansi": {
+					"_id": "instansi_id_6",
+					"nama": "Kemenko PMK"
+				},
+				"user": {
+					"_id": "user_id_1",
+					"username": "owner001"
+				}
+			},
+			"dokumen": {
+				"tahun": "2020",
+				"id_program": "Program Kementerian Koordinator Bidang Pembangunan Manusia dan Kebudayaan Republik Indonesia tahun 2020",
+				"form": {
+					"nama_instansi": "Kementerian Koordinator Bidang Pembangunan Manusia dan Kebudayaan Republik Indonesia",
+					"kegiatan_dan_output": "Tuliskan nama/jenis program/kegiatan dari masing-masing Kementerian/Lembaga/Daerah yang berkaitan dengan Gerakan Nasional Revolusi Mental (GNRM) sesuai dengan dokumen perencanaan dari masing-masing K/L/D yang bersangkutan. Program/Kegiatan yang dituliskan harus memuat output capaian kegiatan yang jelas. Kegiatan K/LD dan output ini ditulis minimal 500 karakter tidak lebih dari 1500 karakter.",
+					"sasaran_indikator_target": "Tuliskan ukuran keberhasilan dari tujuan dan sasaran strategis dari masing-masing kegiatan/program akan dilaksanakan oleh K/L/D dengan memuat indikator output dan indikator outcome. Indikator capaian dan target ini akan menggambarkan pencapaian hasil program dalam bentuk yang terukur dan operasional. K/L/D harus mengukur pencapaian hasil aktual versus hasil yang diharapkan. Sasaran, indikator capaian dan target ini minimal 500 karakter dan tidak lebih dari 1500 karakter.",
+					"kondisi_awal": "Tuliskan informasi dasar yang dihimpun sebelum suatu program dari masing-masing K/L/D dilaksanaan atau keadaan natural sebelum program/kegiatan diberikan intervensi apapun. Data ini dapat digunakan sebagai pembanding untuk memperkirakan manfaat dan dampak yang akan dicapai oleh masing-masing K/L/D.  Kondisi awal ini ditulis  minimal 500 karakter tidak lebih dari 1000 karakter.",
+					"anggaran": "Tuliskan rencana keuangan/pendanaan periodik yang disusun berdasarkan program/kegiatan yang telah disusun/disahkan berdasarkan dokumen perencanaan K/L/D. Rencana anggaran ini harus memuat sumber pendanaan, besaran anggaran dan peruntukan anggaran. Anggaran kegiatan ini minimal 500 karakter tidak lebih dari 1000 karakter.",
+					"proses_pelaksanaan": "Tuliskan semua rencana dan kebijakan program dari masing-masing K/L/D dilengkapi dengan segala kebutuhan, alat-alat yang diperlukan, siapa yang melaksanakan, dimana tempat pelaksanaannya, bagaimana cara melaksanakan, dan apa yang harus dilaksanakan. Proses pelaksanaan kegiatan ini juga harus memuat rangkaian kegiatan tindak lanjut perencanaan program atau langkah yang strategis maupun operasional atau kebijakan yang menjadi kenyataan guna mencapai sasaran dari program yang ditetapkan semula. Proses pelaksanaan kegiatan ini minimal 500 karakter tidak lebih dari 2000 karakter.",
+					"pihak_terkait": "Tuliskan semua pihak yang terlibat dalam pelaksanana program K/L/D. Pada bagian ini harus diuraikan mengenai kontribusi dari masing-masing pihak dalam mencapai hasil yang diharapkan. Penjelasan mengenai pihak terkait ditulis minimal 500 karakter tidak lebih dari 1000 karakter."
+				},
+				"pejabat_eselon": "John Gale",
+				"nip": "987654321987654321"
+			},
+			"tanggal_dibuat": 1586588430918,
+			"tanggal_diperbarui": 1586588430918
+		}
+	]
+}

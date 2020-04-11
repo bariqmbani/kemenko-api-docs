@@ -1,0 +1,52 @@
+{
+	"Instansi": [
+		{
+			"_id": "instansi_id_1",
+			"nama": "Kemenpan",
+			"alamat": "Jl. Nama Jalan No.001, Kelurahan, Kecamatan",
+			"kontak": "021-1234561",
+			"jenis": "Kementerian",
+			"logo": "https://domain.com/public/logo/kemenpan-logo.png"
+		},
+		{
+			"_id": "instansi_id_2",
+			"nama": "Kemenko Maritim",
+			"alamat": "Jl. Nama Jalan No.002, Kelurahan, Kecamatan",
+			"kontak": "021-1234562",
+			"jenis": "Kementerian",
+			"logo": "https://domain.com/public/logo/kemenko-maritim-logo.png"
+		},
+		{
+			"_id": "instansi_id_3",
+			"nama": "Kemenko Polhukam",
+			"alamat": "Jl. Nama Jalan No.003, Kelurahan, Kecamatan",
+			"jenis": "Kementerian",
+			"kontak": "021-1234563",
+			"logo": "https://domain.com/public/logo/kemenko-polhukam-logo.png"
+		},
+		{
+			"_id": "instansi_id_4",
+			"nama": "Kemenko Perekonomian",
+			"alamat": "Jl. Nama Jalan No.004, Kelurahan, Kecamatan",
+			"jenis": "Kementerian",
+			"kontak": "021-1234564",
+			"logo": "https://domain.com/public/logo/kemenko-perekonomian-logo.png"
+		},
+		{
+			"_id": "instansi_id_5",
+			"nama": "Kemendagri",
+			"alamat": "Jl. Nama Jalan No.005, Kelurahan, Kecamatan",
+			"jenis": "Kemendagri",
+			"kontak": "021-1234565",
+			"logo": "https://domain.com/public/logo/kemendagri-logo.png"
+		},
+		{
+			"_id": "instansi_id_6",
+			"nama": "Kemenko PMK",
+			"alamat": "Jl. Nama Jalan No.006, Kelurahan, Kecamatan",
+			"jenis": "Kementerian",
+			"kontak": "021-1234566",
+			"logo": "https://domain.com/public/logo/kemenko-pmk-logo.png"
+		}
+	]
+}

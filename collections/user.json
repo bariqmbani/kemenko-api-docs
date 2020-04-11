@@ -1,0 +1,84 @@
+{
+	"User": [
+		{
+			"_id": "user_id_1",
+			"instansi_id": "instansi_id_6",
+			"role": "owner",
+			"username": "owner001",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "owner@email.test",
+			"kontak": "081234567890",
+			"foto": "https://domain.com/public/foto/user_id_1.png"
+		},
+		{
+			"_id": "user_id_2",
+			"instansi_id": "instansi_id_1",
+			"role": "super",
+			"username": "super001",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "super001@email.test",
+			"kontak": "081234567891",
+			"foto": "https://domain.com/public/foto/user_id_2.png"
+		},
+		{
+			"_id": "user_id_3",
+			"instansi_id": "instansi_id_2",
+			"role": "super",
+			"username": "super002",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "super002@email.test",
+			"kontak": "081234567892",
+			"foto": "https://domain.com/public/foto/user_id_3.png"
+		},
+		{
+			"_id": "user_id_4",
+			"instansi_id": "instansi_id_3",
+			"role": "super",
+			"username": "super003",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "super003@email.test",
+			"kontak": "081234567893",
+			"foto": "https://domain.com/public/foto/user_id_4.png"
+		},
+		{
+			"_id": "user_id_5",
+			"instansi_id": "instansi_id_4",
+			"role": "super",
+			"username": "super004",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "super004@email.test",
+			"kontak": "081234567894",
+			"foto": "https://domain.com/public/foto/user_id_5.png"
+		},
+		{
+			"_id": "user_id_6",
+			"instansi_id": "instansi_id_5",
+			"role": "super",
+			"username": "super005",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "super005@email.test",
+			"kontak": "081234567895",
+			"foto": "https://domain.com/public/foto/user_id_6.png"
+		},
+		{
+			"_id": "user_id_7",
+			"instansi_id": "instansi_id_5",
+			"role": "admin",
+			"username": "admin001",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "admin001@email.test",
+			"kontak": "081234567896",
+			"foto": "https://domain.com/public/foto/user_id_7.png"
+		},
+		{
+			"_id": "user_id_8",
+			"instansi_id": "instansi_id_2",
+			"role": "admin",
+			"username": "admin002",
+			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
+			"email": "admin002@email.test",
+			"kontak": "081234567897",
+			"foto": "https://domain.com/public/foto/user_id_8.png"
+		}
+	]
+}
