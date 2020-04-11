@@ -247,9 +247,10 @@ hr {
 }
 
 .nav-item:hover,
-.nav-sub-item:hover {
+.nav-sub-item:hover,
+a {
 	color: #000 !important;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .card {

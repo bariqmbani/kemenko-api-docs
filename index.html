@@ -23,7 +23,7 @@
             <nav class="sidebar">
     
                 <div class="sidebar-header mt-4 mb-3 p-0">
-                    <h4 class="m-0 p-0">Navigasi</h4>
+                    <h4 class="m-0 p-0"><a href="#">Navigasi</a></h4>
                 </div>
                 
                 <div class="sidebar-nav mt-4">
@@ -58,6 +58,27 @@
                                 </li>
                                 <li class="nav-sub-list">
                                     <a href="#hapus-dokumen" class="nav-sub-item">Menghapus dokumen</a>
+                                </li>
+                            </li>
+                        </div>
+
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a class="nav-item" href="#user">User</a>
+                                <li class="nav-sub-list">
+                                    <a href="#daftar-user" class="nav-sub-item">Mendapatakan daftar user</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#registrasi-user" class="nav-sub-item">Registrasi user baru</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#detail-user" class="nav-sub-item">Melihat detail user</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#perbarui-user" class="nav-sub-item">Memperbarui data user</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#hapus-user" class="nav-sub-item">Menghapus user</a>
                                 </li>
                             </li>
                         </div>
@@ -253,6 +274,25 @@
                                         }
                                     </code>
                                 </pre>
+
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        Akun user tersuspensi.
+                                    </span>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "error",
+                                            "message": "Akun Anda tersuspensi, silakan hubungi admin Anda.
+                                        }
+                                    </code>
+                                </pre>
                             </div>
     
                         </section>
@@ -329,7 +369,7 @@
                             <hr>
                             <div class="param row">
                                 <div class="name col-md-3">
-                                    type
+                                    type <span class="required">*</span>
                                 </div>
                                 <div class="value col-md-9">
                                     <li>monev</li>
@@ -382,6 +422,44 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="query mb-4">
+                                <div class="heading">query</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        instansi
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;nama instansi&gt; (<span class="value-type">cth: Kemenko PMK</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Mendapatakan dokumen dari instansi terkait <b>(hanya bisa oleh 'owner')</b>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        limit
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;angka&gt; (<span class="value-type">cth: 10</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Batasan total data yang akan diterima dan ditampilkan
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        page
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;angka&gt; (<span class="value-type">cth: 2</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Menampilkan halaman selanjutnya dari limit. (limit=4, page=2, menampilkan dari data ke-5)
+                                    </div>
+                                </div>
+                            </div>
         
                             <div class="response mb-4">
                                 <div class="heading">response</div>
@@ -398,7 +476,7 @@
                                         {
                                             "status": "success",
                                             "message": "Berhasil menampilkan dokumen",
-                                            "document": []
+                                            "documents": []
                                         }
                                     </code>
                                 </pre>
@@ -745,6 +823,300 @@
 
 
                     </section>
+
+                    <!-- BAGIAN USER -->
+                    <section>
+                        <div class="section-header">
+                            <h2 id="user">User</h2>
+                        </div>
+    
+    
+                        <div class="description text-justify">
+                            <p>Pada bagian User diwajibkan mengirim Header <b>x-auth-token</b> dan <b>Content-Type</b> untuk setiap end point.</p>
+                            <div class="query mb-4">
+                                <div class="heading">headers</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        x-auth-token <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        aweuaweu &lt;token&gt;
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        Content-Type <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <li>application/json</li>
+                                        <li>multipart/form-data</li>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mb-5 mt-5"><b>Content-Type</b> bernilai 'application/json' jika tidak ada keterangan di penjelasan end point.</p>
+                            
+                        </div>
+
+                        <!-- mendapatkan daftar user -->
+                        <section class="sub-section" id="daftar-user">
+                            <h4>Mendapatkan daftar user</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">get</span>
+                                    </div>
+                                    <span class="endpoint">/api/user</span>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <p>Hanya bisa diakses oleh user yang memiliki <i>role</i> 'owner' dan 'super'</p>
+                            </div>
+
+                            <div class="query mb-4">
+                                <div class="heading">query</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        instansi
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;nama_instansi&gt; (<span class="value-type">cth: Kemenko PMK</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Mendapatakan user dari instansi terkait <b>(hanya bisa oleh 'owner')</b>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        role
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;nama_role&gt; (<span class="value-type">cth: admin</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Mendapatakan user berdasarkan role terkait <b>(hanya bisa oleh 'owner')</b>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        limit
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;angka&gt; (<span class="value-type">cth: 10</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Batasan total data yang akan diterima dan ditampilkan
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-2">
+                                        page
+                                    </div>
+                                    <div class="value col-md-4">
+                                        &lt;angka&gt; (<span class="value-type">cth: 2</span>)
+                                    </div>
+                                    <div class="value col-md-6">
+                                       Menampilkan halaman selanjutnya dari limit. (limit=4, page=2, menampilkan dari data ke-5)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Berhasil mendapatkan daftar user",
+                                            "users": []
+                                        }
+                                    </code>
+                                </pre>
+        
+                            </div>
+    
+                        </section>
+
+                        <!-- registrasi user -->
+                        <section class="sub-section" id="registrasi-user">
+                            <h4>Registrasi user</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">POST</span>
+                                    </div>
+                                    <span class="endpoint">/api/user</span>
+                                </div>
+                            </div>
+
+                            <p>End point hanya bisa diakses oleh user dengan <i>role</i> 'owner' atau 'super'.</p>
+
+                            <div class="req-body mb-4">
+                                <div class="heading">body</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        instansi_id <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        email <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        username <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        password <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        role
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span> (hanya bisa oleh owner)
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- QUERY PARAMETER -->
+                            
+                            <!-- RESPONSE -->
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">201</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Berhasil mendaftarkan user baru",
+                                        }
+                                    </code>
+                                </pre>
+
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        Data yang dikirimkan tidak lengkap
+                                    </span>
+                                  </div>
+                                  <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "type": "error",
+                                            "message": "Data tidak lengkap"
+                                        }
+                                    </code>
+                                  </pre>
+                            </div>
+    
+                        </section>
+
+                        <!-- detail user -->
+                        <section class="sub-section" id="detail-user">
+                            <h4>Melihat detail user</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">get</span>
+                                    </div>
+                                    <span class="endpoint">/api/user/:id</span>
+                                </div>
+                            </div>
+
+                            Akses role user:
+                                <li>owner (semua)</li>
+                                <li>super (<i>self</i> dan admin instansinya)</li>
+                                <li>admin (<i>self</i> )</li>
+                            <br>
+                                    
+                            <!-- RESPONSE -->
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">201</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Berhasil mendapatkan detail user",
+                                            "user": {
+                                                
+                                            }
+                                        }
+                                    </code>
+                                </pre>
+
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        Akses dibatasi atau user tidak ada
+                                    </span>
+                                  </div>
+                                  <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "type": "error",
+                                            "message": "User tidak ditemukan"
+                                        }
+                                    </code>
+                                  </pre>
+                            </div>
+    
+                        </section>
+                        
+                        
+                    </section>
+
+                    
                 </div>
             </div>
         </div>
