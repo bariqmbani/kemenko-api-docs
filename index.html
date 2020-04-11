@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kemenko PMK API Docs</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- higlight js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" integrity="sha256-zcunqSn1llgADaIPFyzrQ8USIjX2VpuxHzUwYisOwo8=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+<body>
+    <div class="container">
+        <button onclick="topFunction()" id="to-top-btn" title="Go to top">ke atas</button>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+    
+                <div class="sidebar-header mt-4 mb-3 p-0">
+                    <h4 class="m-0 p-0">Navigasi</h4>
+                </div>
+                
+                <div class="sidebar-nav mt-4">
+    
+                    <ul class="list-unstyled">
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a class="nav-item" href="#autentikasi">Autentikasi</a>
+                                <li class="nav-sub-list">
+                                    <a href="#mendapatkan-token-baru" class="nav-sub-item">Mendapatkan token baru</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#cek-token" class="nav-sub-item">Cek token</a>
+                                </li>
+                            </li>
+                        </div>
+                        
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a class="nav-item" href="#laporan">Laporan E-Monev</a>
+                                <li class="nav-sub-list">
+                                    <a href="#daftar-laporan" class="nav-sub-item">Mendapatakan daftar laporan</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#unduh-laporan" class="nav-sub-item">Mengunduh laporan</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#unggah-laporan" class="nav-sub-item">Mengunggah laporan</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#perbarui-laporan" class="nav-sub-item">Memperbarui laporan</a>
+                                </li>
+                                <li class="nav-sub-list">
+                                    <a href="#hapus-laporan" class="nav-sub-item">Menghapus laporan</a>
+                                </li>
+                            </li>
+                        </div>
+
+                        <div class="navs">
+                            <li class="nav-list">
+                                <a href="#" class="nav-item">Daftar</a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+            
+            <!-- Page Content -->
+            <div class="content w-100">
+                <div class="container-fluid pt-3">
+
+                    <div class="greeting text-justify mb-5">
+                        <h1>Dokumentasi</h1>
+                        <p>Dokumentasi ini berisi informasi penggunaan REST API untuk aplikasi web E-Monev Kemenko.</p>
+                        <ol>keterangan:
+                            <li><span class="required">* </span>= data diperlukan</li>
+                        </span></ol>
+
+                        <p class="pb-0 mb-0">Response jika token tidak valid:</p>
+                        <div class="param d-inline-block">
+                            <div class="name">Status Code
+                                <div class="badge badge-danger p-1">
+                                    <span class="status">401</span>
+                                </div>
+                            </div>
+                            <span class="info">
+                                Tidak ada token yang dikirimkan.
+                            </span>
+                        </div>
+                        <pre class="pre-custom">
+                            <code class="json">
+                                {
+                                    "status": "error",
+                                    "message": "Tidak ada token, autentikasi ditolak"
+                                }
+                            </code>
+                        </pre>
+
+                        <div class="param d-inline-block">
+                            <div class="name">Status Code
+                                <div class="badge badge-danger p-1">
+                                    <span class="status">401</span>
+                                </div>
+                            </div>
+                            <span class="info">
+                                Identifier tidak sama dengan 'aweuaweu'
+                            </span>
+                        </div>
+                        <pre class="pre-custom">
+                            <code class="json">
+                                {
+                                    "status": "error",
+                                    "message": "Token identifier tidak valid"
+                                }
+                            </code>
+                        </pre>
+
+                        <div class="param d-inline-block">
+                            <div class="name">Status Code
+                                <div class="badge badge-danger p-1">
+                                    <span class="status">401</span>
+                                </div>
+                            </div>
+                            <span class="info">
+                                Token yang dikirimkan salah atau sudah tidak berlaku
+                            </span>
+                        </div>
+                        <pre class="pre-custom">
+                            <code class="json">
+                                {
+                                    "status": "error",
+                                    "message": "Token tidak valid atau sudah kadaluarsa, silakan login kembali"
+                                }
+                            </code>
+                        </pre>
+                    </div>
+
+                    <!-- BAGIAN AUTENTIKASI -->
+                    <section>
+                        <div class="section-header">
+                            <h2 id="autentikasi">Autentikasi</h2>
+                        </div>
+    
+    
+                        <div class="description text-justify">
+                            <p>Bagian ini berisi hal diperlukan untuk autentikasi, yaitu login dan cek token untuk mengetahui masih berlaku atau tidak.</p>
+                        </div>
+
+                        <!-- mendapatkan token baru -->
+                        <section class="sub-section" id="mendapatkan-token-baru">
+                            <h4>Mendapatkan token baru</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">post</span>
+                                    </div>
+                                    <span class="endpoint">/api/auth</span>
+                                </div>
+                            </div>
+
+                            <!-- HEADERS -->
+                            <div class="headers mb-4">
+                                <div class="heading">headers</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        Content-Type <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        application/json
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- QUERY PARAMETER -->
+                            <!-- <div class="query mb-4">
+                                <div class="heading">query</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        exp
+                                    </div>
+                                    <div class="value col-md-9">
+                                        24h
+                                    </div>
+                                </div>
+                            </div> -->
+        
+                            <!-- REQUEST BODY -->
+                            <div class="req-body mb-4">
+                                <div class="heading">body</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        username <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span>
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        password <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">string</span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Login berhasil",
+                                            "token": "&lt;token&gt;"
+                                        }
+                                    </code>
+                                </pre>
+        
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        Data yang diterima tidak lengkap.
+                                    </span>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "error",
+                                            "message": "Data tidak lengkap"
+                                        }
+                                    </code>
+                                </pre>
+
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        Data yang diterima tidak sesuai dengan yang ada di database.
+                                    </span>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "error",
+                                            "message": "Username atau Password yang Anda masukkan salah"
+                                        }
+                                    </code>
+                                </pre>
+                            </div>
+    
+                        </section>
+
+                        <!-- cek token -->
+                        <section class="sub-section" id="cek-token">
+                            <h4>Cek token</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">get</span>
+                                    </div>
+                                    <span class="endpoint">/api/auth</span>
+                                </div>
+                            </div>
+
+                            <!-- HEADERS -->
+                            <div class="headers mb-4">
+                                <div class="heading">headers</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        x-auth-token <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        aweuaweu &lt;token&gt;
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- QUERY PARAMETER -->
+                            
+                            <!-- RESPONSE -->
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Token valid",
+                                        }
+                                    </code>
+                                </pre>
+                                
+                            </div>
+    
+                        </section>
+    
+                        
+                    </section>
+
+                    <!-- BAGIAN LAPORAN -->
+                    <section>
+                        <div class="section-header">
+                            <h2 id="laporan">Laporan E-Monev</h2>
+                        </div>
+    
+    
+                        <div class="description text-justify">
+                            <p>Bagian ini berisi hal diperlukan untuk mengatasi laporan, seperti menyimpan data, mengambil data, dan menghapus data.</p>
+                        </div>
+
+                        <!-- daftar laporan -->
+                        <section class="sub-section" id="daftar-laporan">
+                            <h4>Mendapatkan daftar laporan</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">GET</span>
+                                    </div>
+                                    <span class="endpoint">/api/report</span>
+                                </div>
+                            </div>
+
+                            <!-- HEADERS -->
+                            <div class="headers mb-4">
+                                <div class="heading">headers</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        x-auth-token <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        aweuaweu &lt;token&gt;
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Berhasil menampilkan laporan",
+                                            "report": [
+                                                {
+                                                    "_id": "507f191e810c19729de860ec",
+                                                    "instance_id": "507f191e810c197239d34vdd",
+                                                    "uploader_id": "507f191e810c19729de86022",
+                                                    "date": "2019-04-02"
+                                                },
+                                                {
+                                                    "_id": "507f191e810c19729de860ed",
+                                                    "instance_id": "507f191e810c197239d34vdd",
+                                                    "uploader_id": "507f191e810c19729de86022",
+                                                    "date": "2019-05-02"
+                                                }
+                                            ]
+                                        }
+                                    </code>
+                                </pre>
+                                
+                            </div>    
+    
+                        </section>
+
+                        <!-- unduh laporan -->
+                        <section class="sub-section" id="unduh-laporan">
+                            <h4>Mengunduh laporan</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">get</span>
+                                    </div>
+                                    <span class="endpoint">/api/report/:id</span>
+                                </div>
+                            </div>
+
+                            <!-- HEADERS -->
+                            <div class="headers mb-4">
+                                <div class="heading">headers</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        x-auth-token <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        aweuaweu &lt;token&gt;
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- RESPONSE -->
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+                                        
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        File tidak ada atau akses untuk unduh dibatasi.
+                                    </span>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "type": "error",
+                                            "message": "File tidak ditemukan"
+                                        }
+                                    </code>
+                                </pre>
+                            </div>
+                        </section>
+
+                         <!-- unggah laporan -->
+                         <section class="sub-section" id="unggah-laporan">
+                            <h4>Mengunggah laporan</h4>
+                            <div class="card w-100 mb-2">
+                                <div class="card-body p-1">
+                                    <div class="badge badge-info p-2">
+                                        <span class="method">post</span>
+                                    </div>
+                                    <span class="endpoint">/api/report</span>
+                                </div>
+                            </div>
+
+                            <!-- HEADERS -->
+                            <div class="headers mb-4">
+                                <div class="heading">headers</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        Content-Type <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        multipart/form-data
+                                    </div>
+                                </div>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        x-auth-token <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        aweuaweu &lt;token&gt;
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- body -->
+                            <div class="req-body mb-4">
+                                <div class="heading">body</div>
+                                <hr>
+                                <div class="param row">
+                                    <div class="name col-md-3">
+                                        report <span class="required">*</span>
+                                    </div>
+                                    <div class="value col-md-9">
+                                        <span class="value-type">file</span>
+                                    </div>
+                                </div>
+                              </div>
+        
+                            <!-- RESPONSE -->
+                            <div class="response mb-4">
+                                <div class="heading">response</div>
+                                <hr>
+
+                                <div class="param">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-success p-1">
+                                            <span class="status">200</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "status": "success",
+                                            "message": "Berhasil mengunggah dokumen laporan",
+                                            "document_id": "a76b7b6d-3b57-414b-be1d-37de68a10d93"
+                                        }
+                                    </code>
+                                </pre>
+                                        
+                                <div class="param d-inline-block">
+                                    <div class="name">Status Code
+                                        <div class="badge badge-danger p-1">
+                                            <span class="status">400</span>
+                                        </div>
+                                    </div>
+                                    <span class="info">
+                                        File yang dikirimkan bukan .pdf
+                                    </span>
+                                </div>
+                                <pre class="pre-custom">
+                                    <code class="json">
+                                        {
+                                            "type": "error",
+                                            "message": "File tidak valid"
+                                        }
+                                    </code>
+                                </pre>
+                            </div>
+                        </section>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="main.js"></script>
+
+
+</html>
