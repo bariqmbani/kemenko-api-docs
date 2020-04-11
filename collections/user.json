@@ -8,7 +8,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "owner@email.test",
 			"kontak": "081234567890",
-			"foto": "https://domain.com/public/foto/user_id_1.png"
+			"foto": "https://domain.com/public/foto/user_id_1.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_2",
@@ -18,7 +20,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "super001@email.test",
 			"kontak": "081234567891",
-			"foto": "https://domain.com/public/foto/user_id_2.png"
+			"foto": "https://domain.com/public/foto/user_id_2.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_3",
@@ -28,7 +32,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "super002@email.test",
 			"kontak": "081234567892",
-			"foto": "https://domain.com/public/foto/user_id_3.png"
+			"foto": "https://domain.com/public/foto/user_id_3.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_4",
@@ -38,7 +44,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "super003@email.test",
 			"kontak": "081234567893",
-			"foto": "https://domain.com/public/foto/user_id_4.png"
+			"foto": "https://domain.com/public/foto/user_id_4.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_5",
@@ -48,7 +56,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "super004@email.test",
 			"kontak": "081234567894",
-			"foto": "https://domain.com/public/foto/user_id_5.png"
+			"foto": "https://domain.com/public/foto/user_id_5.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_6",
@@ -58,7 +68,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "super005@email.test",
 			"kontak": "081234567895",
-			"foto": "https://domain.com/public/foto/user_id_6.png"
+			"foto": "https://domain.com/public/foto/user_id_6.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_7",
@@ -68,7 +80,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "admin001@email.test",
 			"kontak": "081234567896",
-			"foto": "https://domain.com/public/foto/user_id_7.png"
+			"foto": "https://domain.com/public/foto/user_id_7.png",
+			"tersuspensi": false,
+			"login_awal": true
 		},
 		{
 			"_id": "user_id_8",
@@ -78,7 +92,9 @@
 			"password": "$2b$10$vjlZO.i1Q.Qpb5sebduQ0uIzKJxMsTYsFM0ZJbEZ1ckwI7M2IRbYG",
 			"email": "admin002@email.test",
 			"kontak": "081234567897",
-			"foto": "https://domain.com/public/foto/user_id_8.png"
+			"foto": "https://domain.com/public/foto/user_id_8.png",
+			"tersuspensi": false,
+			"login_awal": true
 		}
 	]
 }
